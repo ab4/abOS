@@ -1,0 +1,274 @@
+
+task.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <initialise_tasking>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 18             	sub    $0x18,%esp
+   6:	fa                   	cli    
+   7:	c7 44 24 04 00 20 00 	movl   $0x2000,0x4(%esp)
+   e:	00 
+   f:	c7 04 24 00 00 00 e0 	movl   $0xe0000000,(%esp)
+  16:	e8 fc ff ff ff       	call   17 <initialise_tasking+0x17>
+  1b:	c7 04 24 18 00 00 00 	movl   $0x18,(%esp)
+  22:	e8 fc ff ff ff       	call   23 <initialise_tasking+0x23>
+  27:	a3 00 00 00 00       	mov    %eax,0x0
+  2c:	a1 00 00 00 00       	mov    0x0,%eax
+  31:	a3 00 00 00 00       	mov    %eax,0x0
+  36:	8b 15 00 00 00 00    	mov    0x0,%edx
+  3c:	a1 00 00 00 00       	mov    0x0,%eax
+  41:	89 c1                	mov    %eax,%ecx
+  43:	89 0a                	mov    %ecx,(%edx)
+  45:	83 c0 01             	add    $0x1,%eax
+  48:	a3 00 00 00 00       	mov    %eax,0x0
+  4d:	8b 15 00 00 00 00    	mov    0x0,%edx
+  53:	a1 00 00 00 00       	mov    0x0,%eax
+  58:	c7 40 08 00 00 00 00 	movl   $0x0,0x8(%eax)
+  5f:	8b 40 08             	mov    0x8(%eax),%eax
+  62:	89 42 04             	mov    %eax,0x4(%edx)
+  65:	a1 00 00 00 00       	mov    0x0,%eax
+  6a:	c7 40 0c 00 00 00 00 	movl   $0x0,0xc(%eax)
+  71:	a1 00 00 00 00       	mov    0x0,%eax
+  76:	8b 15 00 00 00 00    	mov    0x0,%edx
+  7c:	89 50 10             	mov    %edx,0x10(%eax)
+  7f:	a1 00 00 00 00       	mov    0x0,%eax
+  84:	c7 40 14 00 00 00 00 	movl   $0x0,0x14(%eax)
+  8b:	fb                   	sti    
+  8c:	c9                   	leave  
+  8d:	c3                   	ret    
+
+0000008e <move_stack>:
+  8e:	55                   	push   %ebp
+  8f:	89 e5                	mov    %esp,%ebp
+  91:	83 ec 48             	sub    $0x48,%esp
+  94:	8b 45 08             	mov    0x8(%ebp),%eax
+  97:	89 45 d4             	mov    %eax,-0x2c(%ebp)
+  9a:	eb 3b                	jmp    d7 <move_stack+0x49>
+  9c:	a1 00 00 00 00       	mov    0x0,%eax
+  a1:	89 44 24 08          	mov    %eax,0x8(%esp)
+  a5:	c7 44 24 04 01 00 00 	movl   $0x1,0x4(%esp)
+  ac:	00 
+  ad:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+  b0:	89 04 24             	mov    %eax,(%esp)
+  b3:	e8 fc ff ff ff       	call   b4 <move_stack+0x26>
+  b8:	c7 44 24 08 01 00 00 	movl   $0x1,0x8(%esp)
+  bf:	00 
+  c0:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+  c7:	00 
+  c8:	89 04 24             	mov    %eax,(%esp)
+  cb:	e8 fc ff ff ff       	call   cc <move_stack+0x3e>
+  d0:	81 6d d4 00 10 00 00 	subl   $0x1000,-0x2c(%ebp)
+  d7:	8b 45 08             	mov    0x8(%ebp),%eax
+  da:	2b 45 0c             	sub    0xc(%ebp),%eax
+  dd:	3b 45 d4             	cmp    -0x2c(%ebp),%eax
+  e0:	76 ba                	jbe    9c <move_stack+0xe>
+  e2:	0f 20 d8             	mov    %cr3,%eax
+  e5:	89 45 d8             	mov    %eax,-0x28(%ebp)
+  e8:	8b 45 d8             	mov    -0x28(%ebp),%eax
+  eb:	0f 22 d8             	mov    %eax,%cr3
+  ee:	89 e0                	mov    %esp,%eax
+  f0:	89 45 dc             	mov    %eax,-0x24(%ebp)
+  f3:	89 e8                	mov    %ebp,%eax
+  f5:	89 45 e0             	mov    %eax,-0x20(%ebp)
+  f8:	8b 55 08             	mov    0x8(%ebp),%edx
+  fb:	a1 00 00 00 00       	mov    0x0,%eax
+ 100:	89 d1                	mov    %edx,%ecx
+ 102:	29 c1                	sub    %eax,%ecx
+ 104:	89 c8                	mov    %ecx,%eax
+ 106:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+ 109:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 10c:	8b 55 dc             	mov    -0x24(%ebp),%edx
+ 10f:	8d 04 02             	lea    (%edx,%eax,1),%eax
+ 112:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 115:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 118:	8b 55 e0             	mov    -0x20(%ebp),%edx
+ 11b:	8d 04 02             	lea    (%edx,%eax,1),%eax
+ 11e:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 121:	a1 00 00 00 00       	mov    0x0,%eax
+ 126:	89 c1                	mov    %eax,%ecx
+ 128:	2b 4d dc             	sub    -0x24(%ebp),%ecx
+ 12b:	8b 55 dc             	mov    -0x24(%ebp),%edx
+ 12e:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 131:	89 4c 24 08          	mov    %ecx,0x8(%esp)
+ 135:	89 54 24 04          	mov    %edx,0x4(%esp)
+ 139:	89 04 24             	mov    %eax,(%esp)
+ 13c:	e8 fc ff ff ff       	call   13d <move_stack+0xaf>
+ 141:	8b 45 08             	mov    0x8(%ebp),%eax
+ 144:	89 45 d4             	mov    %eax,-0x2c(%ebp)
+ 147:	eb 32                	jmp    17b <move_stack+0xed>
+ 149:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+ 14c:	8b 00                	mov    (%eax),%eax
+ 14e:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 151:	8b 45 dc             	mov    -0x24(%ebp),%eax
+ 154:	3b 45 f0             	cmp    -0x10(%ebp),%eax
+ 157:	73 1e                	jae    177 <move_stack+0xe9>
+ 159:	a1 00 00 00 00       	mov    0x0,%eax
+ 15e:	39 45 f0             	cmp    %eax,-0x10(%ebp)
+ 161:	73 14                	jae    177 <move_stack+0xe9>
+ 163:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 166:	01 45 f0             	add    %eax,-0x10(%ebp)
+ 169:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+ 16c:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 16f:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 172:	8b 55 f0             	mov    -0x10(%ebp),%edx
+ 175:	89 10                	mov    %edx,(%eax)
+ 177:	83 6d d4 04          	subl   $0x4,-0x2c(%ebp)
+ 17b:	8b 45 08             	mov    0x8(%ebp),%eax
+ 17e:	2b 45 0c             	sub    0xc(%ebp),%eax
+ 181:	3b 45 d4             	cmp    -0x2c(%ebp),%eax
+ 184:	72 c3                	jb     149 <move_stack+0xbb>
+ 186:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 189:	89 c4                	mov    %eax,%esp
+ 18b:	8b 45 ec             	mov    -0x14(%ebp),%eax
+ 18e:	89 c5                	mov    %eax,%ebp
+ 190:	c9                   	leave  
+ 191:	c3                   	ret    
+
+00000192 <fork>:
+ 192:	55                   	push   %ebp
+ 193:	89 e5                	mov    %esp,%ebp
+ 195:	83 ec 38             	sub    $0x38,%esp
+ 198:	fa                   	cli    
+ 199:	a1 00 00 00 00       	mov    0x0,%eax
+ 19e:	89 45 dc             	mov    %eax,-0x24(%ebp)
+ 1a1:	a1 00 00 00 00       	mov    0x0,%eax
+ 1a6:	89 04 24             	mov    %eax,(%esp)
+ 1a9:	e8 fc ff ff ff       	call   1aa <fork+0x18>
+ 1ae:	89 45 e0             	mov    %eax,-0x20(%ebp)
+ 1b1:	c7 04 24 18 00 00 00 	movl   $0x18,(%esp)
+ 1b8:	e8 fc ff ff ff       	call   1b9 <fork+0x27>
+ 1bd:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+ 1c0:	a1 00 00 00 00       	mov    0x0,%eax
+ 1c5:	89 c1                	mov    %eax,%ecx
+ 1c7:	8b 55 e4             	mov    -0x1c(%ebp),%edx
+ 1ca:	89 0a                	mov    %ecx,(%edx)
+ 1cc:	83 c0 01             	add    $0x1,%eax
+ 1cf:	a3 00 00 00 00       	mov    %eax,0x0
+ 1d4:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1d7:	c7 40 08 00 00 00 00 	movl   $0x0,0x8(%eax)
+ 1de:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1e1:	8b 50 08             	mov    0x8(%eax),%edx
+ 1e4:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1e7:	89 50 04             	mov    %edx,0x4(%eax)
+ 1ea:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1ed:	c7 40 0c 00 00 00 00 	movl   $0x0,0xc(%eax)
+ 1f4:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1f7:	8b 55 e0             	mov    -0x20(%ebp),%edx
+ 1fa:	89 50 10             	mov    %edx,0x10(%eax)
+ 1fd:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 200:	c7 40 14 00 00 00 00 	movl   $0x0,0x14(%eax)
+ 207:	a1 00 00 00 00       	mov    0x0,%eax
+ 20c:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 20f:	eb 09                	jmp    21a <fork+0x88>
+ 211:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 214:	8b 40 14             	mov    0x14(%eax),%eax
+ 217:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 21a:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 21d:	8b 40 14             	mov    0x14(%eax),%eax
+ 220:	85 c0                	test   %eax,%eax
+ 222:	75 ed                	jne    211 <fork+0x7f>
+ 224:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 227:	8b 55 e4             	mov    -0x1c(%ebp),%edx
+ 22a:	89 50 14             	mov    %edx,0x14(%eax)
+ 22d:	e8 fc ff ff ff       	call   22e <fork+0x9c>
+ 232:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 235:	8b 15 00 00 00 00    	mov    0x0,%edx
+ 23b:	8b 45 dc             	mov    -0x24(%ebp),%eax
+ 23e:	39 c2                	cmp    %eax,%edx
+ 240:	75 2d                	jne    26f <fork+0xdd>
+ 242:	89 e0                	mov    %esp,%eax
+ 244:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 247:	89 e8                	mov    %ebp,%eax
+ 249:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 24c:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 24f:	8b 55 f0             	mov    -0x10(%ebp),%edx
+ 252:	89 50 04             	mov    %edx,0x4(%eax)
+ 255:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 258:	8b 55 f4             	mov    -0xc(%ebp),%edx
+ 25b:	89 50 08             	mov    %edx,0x8(%eax)
+ 25e:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 261:	8b 55 ec             	mov    -0x14(%ebp),%edx
+ 264:	89 50 0c             	mov    %edx,0xc(%eax)
+ 267:	fb                   	sti    
+ 268:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 26b:	8b 00                	mov    (%eax),%eax
+ 26d:	eb 05                	jmp    274 <fork+0xe2>
+ 26f:	b8 00 00 00 00       	mov    $0x0,%eax
+ 274:	c9                   	leave  
+ 275:	c3                   	ret    
+
+00000276 <switch_task>:
+ 276:	55                   	push   %ebp
+ 277:	89 e5                	mov    %esp,%ebp
+ 279:	83 ec 18             	sub    $0x18,%esp
+ 27c:	a1 00 00 00 00       	mov    0x0,%eax
+ 281:	85 c0                	test   %eax,%eax
+ 283:	0f 84 b9 00 00 00    	je     342 <switch_task+0xcc>
+ 289:	89 e0                	mov    %esp,%eax
+ 28b:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 28e:	89 e8                	mov    %ebp,%eax
+ 290:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 293:	e8 fc ff ff ff       	call   294 <switch_task+0x1e>
+ 298:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 29b:	81 7d f4 45 23 01 00 	cmpl   $0x12345,-0xc(%ebp)
+ 2a2:	0f 84 9d 00 00 00    	je     345 <switch_task+0xcf>
+ 2a8:	a1 00 00 00 00       	mov    0x0,%eax
+ 2ad:	8b 55 f4             	mov    -0xc(%ebp),%edx
+ 2b0:	89 50 0c             	mov    %edx,0xc(%eax)
+ 2b3:	a1 00 00 00 00       	mov    0x0,%eax
+ 2b8:	8b 55 ec             	mov    -0x14(%ebp),%edx
+ 2bb:	89 50 04             	mov    %edx,0x4(%eax)
+ 2be:	a1 00 00 00 00       	mov    0x0,%eax
+ 2c3:	8b 55 f0             	mov    -0x10(%ebp),%edx
+ 2c6:	89 50 08             	mov    %edx,0x8(%eax)
+ 2c9:	a1 00 00 00 00       	mov    0x0,%eax
+ 2ce:	8b 40 14             	mov    0x14(%eax),%eax
+ 2d1:	a3 00 00 00 00       	mov    %eax,0x0
+ 2d6:	a1 00 00 00 00       	mov    0x0,%eax
+ 2db:	85 c0                	test   %eax,%eax
+ 2dd:	75 0a                	jne    2e9 <switch_task+0x73>
+ 2df:	a1 00 00 00 00       	mov    0x0,%eax
+ 2e4:	a3 00 00 00 00       	mov    %eax,0x0
+ 2e9:	a1 00 00 00 00       	mov    0x0,%eax
+ 2ee:	8b 40 04             	mov    0x4(%eax),%eax
+ 2f1:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 2f4:	a1 00 00 00 00       	mov    0x0,%eax
+ 2f9:	8b 40 08             	mov    0x8(%eax),%eax
+ 2fc:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 2ff:	a1 00 00 00 00       	mov    0x0,%eax
+ 304:	8b 40 0c             	mov    0xc(%eax),%eax
+ 307:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 30a:	a1 00 00 00 00       	mov    0x0,%eax
+ 30f:	8b 40 10             	mov    0x10(%eax),%eax
+ 312:	a3 00 00 00 00       	mov    %eax,0x0
+ 317:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 31a:	fa                   	cli    
+ 31b:	89 c1                	mov    %eax,%ecx
+ 31d:	8b 45 ec             	mov    -0x14(%ebp),%eax
+ 320:	89 c4                	mov    %eax,%esp
+ 322:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 325:	89 c5                	mov    %eax,%ebp
+ 327:	a1 00 00 00 00       	mov    0x0,%eax
+ 32c:	8b 90 00 20 00 00    	mov    0x2000(%eax),%edx
+ 332:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 335:	0f 22 d8             	mov    %eax,%cr3
+ 338:	b8 45 23 01 00       	mov    $0x12345,%eax
+ 33d:	fb                   	sti    
+ 33e:	ff e1                	jmp    *%ecx
+ 340:	eb 04                	jmp    346 <switch_task+0xd0>
+ 342:	90                   	nop
+ 343:	eb 01                	jmp    346 <switch_task+0xd0>
+ 345:	90                   	nop
+ 346:	c9                   	leave  
+ 347:	c3                   	ret    
+
+00000348 <getpid>:
+ 348:	55                   	push   %ebp
+ 349:	89 e5                	mov    %esp,%ebp
+ 34b:	a1 00 00 00 00       	mov    0x0,%eax
+ 350:	8b 00                	mov    (%eax),%eax
+ 352:	5d                   	pop    %ebp
+ 353:	c3                   	ret    

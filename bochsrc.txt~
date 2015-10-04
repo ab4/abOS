@@ -7,4 +7,3 @@ log: bochsout.txt
 mouse: enabled=0
 clock: sync=realtime
 cpu: ips=5000000
-display_library: sdl

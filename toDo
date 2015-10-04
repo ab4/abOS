@@ -1,0 +1,13 @@
+[] implement monitor_write_dec(...) properly
+     handle negative numbers
+     copy from tutorial
+
+[] implement monitor_write_hex(...) 
+     copy from tutorial
+
+[] copy other helper functions from tutorial
+
+[] try out the nasm snippit from wikipedia
+     tried it but it doesn't work - debug
+
+[] mess around with local apic - see if I can get the timer to work
